@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 const absPath = relPath => path.resolve(appDirectory, relPath);
+const packageJson = require("./package.json");
 
 const common = {
     mode: process.env.NODE_ENV,
@@ -21,7 +22,6 @@ const common = {
             {
                 test: /\.(ts|tsx)$/,
                 include: absPath("src"),
-                exclude: absPath("node_modules"),
                 use: ['ts-loader'],
             },
             {
@@ -46,6 +46,8 @@ const testPage = {
     ...common,
     entry: {
         testPage: "./src/testPage.tsx",
+        companyCorrelationElement: "./src/CorrelationElement.tsx",
+        componentTestPage: "./src/componentTestPage.ts",
     },
     output: {
         ...common.output,
@@ -59,7 +61,25 @@ const testPage = {
             template: "./src/testPageTemplate.html",
             chunks: ["testPage"]
         }),
+        new HtmlWebpackPlugin({
+            filename: "componentTestPage.html",
+            inject: "body",
+            template: "./src/componentTestPageTemplate.html",
+            chunks: ["companyCorrelationElement", "componentTestPage"],
+            chunksSortMode: "manual"
+        }),
     ]
 }
 
-module.exports = [testPage]
+const customElementsDist = {
+    ...common,
+    entry: {
+        companyCorrelationElement: "./src/CorrelationElement.tsx",
+    },
+    output: {
+        ...common.output,
+        filename: `dist/js/[name].${packageJson.version}.js`,
+    },
+}
+
+module.exports = [testPage, customElementsDist]
