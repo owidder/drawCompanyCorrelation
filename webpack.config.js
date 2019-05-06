@@ -46,7 +46,7 @@ const testPage = {
     ...common,
     entry: {
         testPage: "./src/testPage.tsx",
-        companyCorrelationElement: "./src/CorrelationElement.tsx",
+        companyCorrelationElement: "./src/CompanyCorrelationElement.tsx",
         componentTestPage: "./src/componentTestPage.ts",
     },
     output: {
@@ -74,7 +74,7 @@ const testPage = {
 const customElementsDist = {
     ...common,
     entry: {
-        companyCorrelationElement: "./src/CorrelationElement.tsx",
+        companyCorrelationElement: "./src/CompanyCorrelationElement.tsx",
     },
     output: {
         ...common.output,

@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 
 import {CompanyCorrelation} from "./CompanyCorrelation";
 
-class CorrelationElement extends HTMLElement {
+class CompanyCorrelationElement extends HTMLElement {
 
     public onChangeCompany: (string) => void;
 
@@ -15,4 +15,4 @@ class CorrelationElement extends HTMLElement {
     }
 }
 
-customElements.define("company-correlation", CorrelationElement);
+customElements.define("company-correlation", CompanyCorrelationElement);
