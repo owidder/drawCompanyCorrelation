@@ -38,11 +38,11 @@ export class Correlation extends React.Component<CorrelationProps, CorrelationSt
     }
 
     async componentDidUpdate(prevProps: CorrelationProps, prevState: CorrelationState) {
-        if(this.props.symbolX !== prevProps.symbolX) {
+        if(this.state.pricesX.length == 0 || (this.props.symbolX !== prevProps.symbolX)) {
             const pricesX  = await loadData(this.props.symbolX);
             this.setState({pricesX});
         }
-        if(this.props.symbolY !== prevProps.symbolY) {
+        if(this.state.pricesY.length == 0 || (this.props.symbolY !== prevProps.symbolY)) {
             const pricesY  = await loadData(this.props.symbolY);
             this.setState({pricesY});
         }
