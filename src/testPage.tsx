@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {Correlation} from "./Correlation";
+import {CompanyCorrelation} from "./CompanyCorrelation";
 
-ReactDOM.render(<Correlation symbolX="AAPL" symbolY="FB"/>, document.getElementById("correlation"));
+ReactDOM.render(<CompanyCorrelation symbolX="AAPL" symbolY="FB"/>, document.getElementById("correlation"));

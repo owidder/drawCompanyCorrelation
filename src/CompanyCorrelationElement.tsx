@@ -2,17 +2,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {Correlation} from "./Correlation";
+import {CompanyCorrelation} from "./CompanyCorrelation";
 
-class CorrelationElement extends HTMLElement {
+class CompanyCorrelationElement extends HTMLElement {
 
     public onChangeCompany: (string) => void;
 
     connectedCallback() {
-        ReactDOM.render(<Correlation
+        ReactDOM.render(<CompanyCorrelation
             symbolX={this.getAttribute("symbolX")}
             symbolY={this.getAttribute("symbolY")}/>, this);
     }
 }
 
-customElements.define("company-correlation", CorrelationElement);
+customElements.define("company-correlation", CompanyCorrelationElement);
