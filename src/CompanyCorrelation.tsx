@@ -21,7 +21,7 @@ const loadData = async (symbol: string): Promise<EndOfDayPrice[]> => {
     return await response.json();
 }
 
-export class Correlation extends React.Component<CorrelationProps, CorrelationState> {
+export class CompanyCorrelation extends React.Component<CorrelationProps, CorrelationState> {
 
     readonly state: CorrelationState = {width: 0, height: 0, pricesX: [], pricesY: []}
 
